@@ -1,0 +1,118 @@
+from math import pi
+import pygame
+from pygame.draw import *
+import sys
+
+from pygame.surface import Surface
+from pygame.transform import rotate
+
+
+pygame.init()
+sc = pygame.display.set_mode((794, 1123))
+
+BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+RED = (255, 0, 0)
+GREEN = (118, 255, 122)
+BLUE = (0, 0, 255)
+BROWN = (80, 61, 51)
+FLOOR = (193, 154, 107)
+SKYBLUE = (175, 238, 238)
+ORANGE = (215, 110, 0)
+LIGHT_ORANGE = (244, 164, 96)
+GRAY = (128, 128, 128)
+
+# wall_floor
+
+rect (sc, BROWN, (0, 0, 794, 505))
+rect (sc, FLOOR, (0, 505, 794, 618))
+
+#window
+rect (sc, WHITE, (433, 31, 353, 454))
+rect (sc, SKYBLUE, (453, 45, 142, 120))
+rect (sc, SKYBLUE, (621, 45, 142, 120))
+rect (sc, SKYBLUE, (453, 197, 142, 270))
+rect (sc, SKYBLUE, (621, 197, 142, 270))
+
+# tail
+ellipse (sc, ORANGE, [559, 583, 351, 117])
+ellipse (sc, BLACK, [559, 583, 351, 117], 2)
+
+# body
+ellipse (sc, ORANGE, [132, 532, 490, 271])
+ellipse (sc, BLACK, [132, 532, 490, 271], 2)
+
+# лапки
+ellipse (sc, ORANGE, [62, 674, 65, 98])
+ellipse (sc, ORANGE, [126, 743, 127, 71])
+ellipse (sc, BLACK, [62, 674, 65, 98], 2)
+ellipse (sc, BLACK, [126, 743, 127, 71], 2)
+circle (sc, ORANGE, [542, 737], 84)
+circle (sc, BLACK, [542, 737], 84, 2)
+ellipse (sc, ORANGE, [592, 760, 55, 135])
+ellipse (sc, BLACK, [592, 760, 55, 135], 2)
+
+# head
+circle (sc, ORANGE, [130, 646], 108)
+circle (sc, BLACK, [130, 646], 108, 2)
+
+# ears
+polygon (sc, ORANGE, [[15, 546], [71, 573], [32, 617]]) 
+polygon (sc, BLACK, [[15, 546], [71, 573], [32, 617]], 2) 
+polygon (sc, ORANGE, [[170, 570], [223, 528], [213, 611]])
+polygon (sc, BLACK, [[15, 546], [71, 573], [32, 617]], 2) 
+polygon (sc, BLACK, [[170, 570], [223, 528], [213, 611]], 2)
+
+polygon (sc, LIGHT_ORANGE, [[22, 553], [64, 573], [34, 606]])
+polygon (sc, BLACK, [[22, 553], [64, 573], [34, 606]], 1)
+
+polygon (sc, LIGHT_ORANGE, [[178, 570], [216, 547], [210, 600]])
+polygon (sc, BLACK, [[178, 570], [216, 547], [210, 600]], 1)
+
+# eyes
+ellipse (sc, GREEN, [58, 627, 53, 58])
+ellipse (sc, GREEN, [151, 627, 53, 58])
+ellipse (sc, BLACK, [58, 627, 53, 58], 1)
+ellipse (sc, BLACK, [151, 627, 53, 58], 1)
+# зрачки
+ellipse (sc, BLACK, [90, 630, 6, 53])
+ellipse (sc, BLACK, [182, 630, 6, 53])
+ellipse (sc, WHITE, [79, 631, 11, 23])
+ellipse (sc, WHITE, [171, 631, 11, 23])
+
+# нос
+polygon (sc, LIGHT_ORANGE, [[120, 692], [140, 692], [131, 701]])
+polygon (sc, BLACK, [[120, 692], [140, 692], [131, 701]], 2)
+line (sc, BLACK, [131, 701], [131, 718], 1)
+line (sc, BLACK, [130, 701], [130, 718], 1)
+arc (sc, BLACK, [113, 711, 16, 16], pi, 2*pi, 2)
+arc (sc, BLACK, [132, 711, 16, 16], pi, 2*pi, 2)
+
+# усы 
+arc (sc, BLACK, [-4, 689, 531, 518], 0.5*pi, 0.63*pi, 1)
+arc (sc, BLACK, [222, 953, 250, 250], 0.4*pi, 0.53*pi, 1)
+arc (sc, BLACK, [-229, 700, 479, 434], 0.38*pi, 0.5*pi, 1)
+
+
+# клубок
+circle (sc, GRAY, [479, 982], 85)
+circle (sc, BLACK, [479, 982], 85, 2)
+arc (sc, BLACK, [216, 887, 352, 352], 0.17*pi, 0.3*pi) 
+arc (sc, BLACK, [246, 920, 314, 314], 0.17*pi, 0.3*pi)
+arc (sc, BLACK, [283, 938, 249, 202], 0.17*pi, 0.3*pi)
+
+arc (sc, BLACK, [427, 932, 249, 202], 0.7*pi, pi)
+arc (sc, BLACK, [453, 913, 378, 272], 0.8*pi, pi)
+
+
+pygame.display.update()
+clock = pygame.time.Clock()
+finished = False
+
+while not finished:
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            finished = True
+
+pygame.quit()
