@@ -3,10 +3,6 @@ import pygame
 from pygame.draw import *
 import sys
 
-from pygame.surface import Surface
-from pygame.transform import rotate
-
-
 pygame.init()
 sc = pygame.display.set_mode((794, 1123))
 
